@@ -1,0 +1,678 @@
+swagger: '2.0'
+info:
+  version: '1.0'
+  title: Virtual-Archive
+  contact: {}
+host: n8l7szvh3j.execute-api.us-east-1.amazonaws.com
+basePath: /dev
+schemes:
+- https
+- http
+consumes:
+- application/json
+produces:
+- application/json
+paths:
+  /catalogue/new:
+    post:
+      summary: Create Catalogue
+      tags:
+      - Catalogue
+      operationId: CreateCatalogue
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: userid
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/CreateCatalogueRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /catalogue/{catalogueUUID}:
+    get:
+      summary: Get Catalogue By UUID
+      tags:
+      - Catalogue
+      operationId: GetCatalogueByUUID
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: userid
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: catalogueUUID
+        in: path
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+    delete:
+      summary: Delete Catalogue
+      tags:
+      - Catalogue
+      operationId: DeleteCatalogue
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: userid
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: catalogueUUID
+        in: path
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /catalogue-by-user:
+    get:
+      summary: Get Catalogue By UserID
+      tags:
+      - Catalogue
+      operationId: GetCatalogueByUserID
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: userid
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /catalogue-by-name/{catalogueName}:
+    get:
+      summary: Get Catalogue By Name
+      tags:
+      - Catalogue
+      operationId: GetCatalogueByName
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: userid
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: catalogueName
+        in: path
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /child-catalogue/{catalogueUUID}:
+    get:
+      summary: Get Children Catalogues
+      tags:
+      - Catalogue
+      operationId: GetChildrenCatalogues
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: userid
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: catalogueUUID
+        in: path
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /catalogue/edit:
+    put:
+      summary: Update Catalogue
+      tags:
+      - Catalogue
+      operationId: UpdateCatalogue
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: userid
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/UpdateCatalogueRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /item/new:
+    post:
+      summary: Create Item
+      tags:
+      - Item
+      operationId: CreateItem
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: userid
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/CreateItemRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /item/{itemUUID}:
+    get:
+      summary: Get Item By UUID
+      tags:
+      - Item
+      operationId: GetItemByUUID
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: userid
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: itemUUID
+        in: path
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+    delete:
+      summary: Delete Item
+      tags:
+      - Item
+      operationId: DeleteItem
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: userid
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: itemUUID
+        in: path
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /item-by-name/{itemName}:
+    get:
+      summary: Get Item By Name
+      tags:
+      - Item
+      operationId: GetItemByName
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: userid
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: itemName
+        in: path
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /item-by-catalogue-uuid/{catalogueUUID}:
+    get:
+      summary: Get Items By CatalogueUUID
+      tags:
+      - Item
+      operationId: GetItemsByCatalogueUUID
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: userid
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: catalogueUUID
+        in: path
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /item/edit:
+    put:
+      summary: Update Item
+      tags:
+      - Item
+      operationId: UpdateItem
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: userid
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/UpdateItemRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /item-description/{catalogueName}/{itemName}:
+    get:
+      summary: Get Item Description
+      tags:
+      - Item
+      operationId: GetItemDescription
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: userid
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: catalogueName
+        in: path
+        required: true
+        type: string
+        description: ''
+      - name: itemName
+        in: path
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /item-uuid/{catalogueName}/{itemName}:
+    get:
+      summary: Get Catalogue UUID
+      tags:
+      - Item
+      operationId: GetCatalogueUUID
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: userid
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: catalogueName
+        in: path
+        required: true
+        type: string
+        description: ''
+      - name: itemName
+        in: path
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /reminder/new:
+    post:
+      summary: Create Reminder
+      tags:
+      - Reminder
+      operationId: CreateReminder
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: userid
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/CreateReminderRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /reminder/{reminderUUID}:
+    get:
+      summary: Get Reminder
+      tags:
+      - Reminder
+      operationId: GetReminder
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: userid
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: reminderUUID
+        in: path
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+    delete:
+      summary: Delete Reminder
+      tags:
+      - Reminder
+      operationId: DeleteReminder
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: userid
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: reminderUUID
+        in: path
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /reminder-by-user:
+    get:
+      summary: Get Reminder By User ID
+      tags:
+      - Reminder
+      operationId: GetReminderByUserID
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: userid
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /reminder-by-date/{reminderDate}:
+    get:
+      summary: Grt Reminder By Date
+      tags:
+      - Reminder
+      operationId: GrtReminderByDate
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: userid
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: reminderDate
+        in: path
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /reminder-by-item/{itemUUID}:
+    get:
+      summary: Get Reminder By Item
+      tags:
+      - Reminder
+      operationId: GetReminderByItem
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: userid
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: itemUUID
+        in: path
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /reminder/edit:
+    put:
+      summary: Update Reminder
+      tags:
+      - Reminder
+      operationId: UpdateReminder
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: userid
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/UpdateReminderRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+definitions:
+  CreateCatalogueRequest:
+    title: CreateCatalogueRequest
+    example:
+      CatalogueName: '{{catalogueName}}'
+    type: object
+    properties:
+      CatalogueName:
+        type: string
+    required:
+    - CatalogueName
+  UpdateCatalogueRequest:
+    title: UpdateCatalogueRequest
+    example:
+      ImageUrl: https://thumbor.thedailymeal.com
+      CatalogueName: '{{catalogueName}}a'
+      UUID: '{{catalogueUUID}}'
+      Description: test catalogue object
+    type: object
+    properties:
+      ImageUrl:
+        type: string
+      CatalogueName:
+        type: string
+      UUID:
+        type: string
+      Description:
+        type: string
+    required:
+    - ImageUrl
+    - CatalogueName
+    - UUID
+    - Description
+  CreateItemRequest:
+    title: CreateItemRequest
+    example:
+      ItemName: '{{itemName}}'
+      CatalogueUUID: '{{catalogueUUID}}'
+    type: object
+    properties:
+      ItemName:
+        type: string
+      CatalogueUUID:
+        type: string
+    required:
+    - ItemName
+    - CatalogueUUID
+  UpdateItemRequest:
+    title: UpdateItemRequest
+    example:
+      ItemName: '{{itemName}}a'
+      CatalogueUUID: '{{catalogueUUID}}'
+      Description: testing item object
+      StoredLocation: testing
+      ImageUrl: https://www.seriouseats.com
+      UUID: '{{itemUUID}}'
+    type: object
+    properties:
+      ItemName:
+        type: string
+      CatalogueUUID:
+        type: string
+      Description:
+        type: string
+      StoredLocation:
+        type: string
+      ImageUrl:
+        type: string
+      UUID:
+        type: string
+    required:
+    - ItemName
+    - CatalogueUUID
+    - Description
+    - StoredLocation
+    - ImageUrl
+    - UUID
+  CreateReminderRequest:
+    title: CreateReminderRequest
+    example:
+      ReminderDate: 2020-2-2
+      ReminderTime: 08:58 AM
+      Description: Expiery Date
+      ItemUUID: '{{itemUUID}}'
+    type: object
+    properties:
+      ReminderDate:
+        type: string
+      ReminderTime:
+        type: string
+      Description:
+        type: string
+      ItemUUID:
+        type: string
+    required:
+    - ReminderDate
+    - ReminderTime
+    - Description
+    - ItemUUID
+  UpdateReminderRequest:
+    title: UpdateReminderRequest
+    example:
+      ItemUUID: '{{itemUUID}}'
+      ReminderTime: 08:58 AM
+      ReminderDate: 2020-2-2
+      UUID: '{{reminderUUID}}'
+      Description: Expiery Date
+    type: object
+    properties:
+      ItemUUID:
+        type: string
+      ReminderTime:
+        type: string
+      ReminderDate:
+        type: string
+      UUID:
+        type: string
+      Description:
+        type: string
+    required:
+    - ItemUUID
+    - ReminderTime
+    - ReminderDate
+    - UUID
+    - Description
+tags:
+- name: Catalogue
+  description: 'All operations on Catalogues'
+- name: Item
+  description: 'All operations on Items'
+- name: Reminder
+  description: 'All operations on Reminders'
